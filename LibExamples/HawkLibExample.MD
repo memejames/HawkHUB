@@ -129,7 +129,7 @@ end)
 
 # Creating Toggle
 ```lua 
-local toggleee = newsec:Toggle("Example Toggle",function(value)
+local toggleee = newsec:Toggle("Example Toggle",false,function(value)
 	if value == true then
 		print("Activated!")
 	elseif value == false then
