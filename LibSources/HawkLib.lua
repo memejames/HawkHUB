@@ -608,7 +608,7 @@ function HawkLib:Window(Win)
 					if openbutton ~= nil then
 						if openbutton == true then
 							local OpenFrame = Instance.new("Frame")
-							local Open = Instance.new("TextButton")
+							local Open = Instance.new("ImageLabel")
 							local UICorner = Instance.new("UICorner")				
 							local UI2Corner = Instance.new("UICorner")
 
@@ -629,12 +629,8 @@ function HawkLib:Window(Win)
 							Open.Name = "Open"
 							Open.Parent = OpenFrame
 							Open.BackgroundColor3 = HawkLib.Themes[Theme].ItemColors
-							Open.Size = UDim2.new(1.0, 0, 0.92, 0)
-							Open.Font = Enum.Font.GothamBold
-							Open.Text = "Open"
-							Open.TextColor3 = HawkLib.Themes[Theme].ItemTitleColors
-							Open.TextSize = 22.000
-							Open.TextWrapped = true
+							Open.Size = UDim2.new(1.0, 0, 1.0, 0)
+							Open.Image = "rbxassetid://18539730552"
 							Open.AutoButtonColor = false
 							MakeDraggable(Open, OpenFrame)
 
