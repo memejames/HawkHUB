@@ -307,7 +307,7 @@ function HawkLib:Window(Win)
 
 		if bali ~= nil then
 			if bali == true then
-				for i, v in pairs(game.CoreGui:GetChildren()) do
+				for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
 					if v.Name == "Hawk" then
 						v:Destroy()
 					end
@@ -386,7 +386,7 @@ function HawkLib:Window(Win)
 		Hawk.Name = "Hawk"		
 		Hawk.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 		Hawk.ResetOnSpawn = false
-		Hawk.Parent = game.CoreGui
+		Hawk.Parent = game:GetService("CoreGui")
 
 		Main.Name = "Main"
 		Main.Parent = Hawk
@@ -545,7 +545,7 @@ function HawkLib:Window(Win)
 		Shadow.SliceCenter = Rect.new(24, 24, 276, 276)
 
 		function HawkLib:ToggleUI()	
-			for i, v in pairs(game.CoreGui:GetChildren()) do
+			for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
 				if v.Name == "Hawk" then
 					if v.Enabled == true then
 						v.Enabled = false
@@ -557,7 +557,7 @@ function HawkLib:Window(Win)
 		end
 
 		function HawkLib:Destroy()		
-			for i, v in pairs(game.CoreGui:GetChildren()) do
+			for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
 				if v.Name == "Hawk" then
 					v:Destroy()
 				end 
@@ -567,7 +567,7 @@ function HawkLib:Window(Win)
 		local Sayfalar = {}	
 
 		function Sayfalar:ToggleUI()		
-			for i, v in pairs(game.CoreGui:GetChildren()) do
+			for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
 				if v.Name == "Hawk" then
 					if v.Enabled == true then
 						v.Enabled = false
@@ -579,7 +579,7 @@ function HawkLib:Window(Win)
 		end
 
 		function Sayfalar:Destroy()		
-			for i, v in pairs(game.CoreGui:GetChildren()) do
+			for i, v in pairs(game:GetService("CoreGui"):GetChildren()) do
 				if v.Name == "Hawk" then
 					v:Destroy()
 				end 
@@ -608,7 +608,7 @@ function HawkLib:Window(Win)
 					if openbutton ~= nil then
 						if openbutton == true then
 							local OpenFrame = Instance.new("Frame")
-							local Open = Instance.new("ImageLabel")
+							local Open = Instance.new("TextButton")
 							local UICorner = Instance.new("UICorner")				
 							local UI2Corner = Instance.new("UICorner")
 
@@ -629,8 +629,12 @@ function HawkLib:Window(Win)
 							Open.Name = "Open"
 							Open.Parent = OpenFrame
 							Open.BackgroundColor3 = HawkLib.Themes[Theme].ItemColors
-							Open.Size = UDim2.new(1.0, 0, 1.0, 0)
-							Open.Image = "rbxassetid://18539730552"
+							Open.Size = UDim2.new(1.0, 0, 0.92, 0)
+							Open.Font = Enum.Font.GothamBold
+							Open.Text = "Open"
+							Open.TextColor3 = HawkLib.Themes[Theme].ItemTitleColors
+							Open.TextSize = 22.000
+							Open.TextWrapped = true
 							Open.AutoButtonColor = false
 							MakeDraggable(Open, OpenFrame)
 
@@ -1295,7 +1299,7 @@ function HawkLib:Window(Win)
 						callback = callback or function()
 						end
 
-						local mouse = game.Players.LocalPlayer:GetMouse()
+						local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 						local uis = game:GetService("UserInputService")
 
 						local Slider = Instance.new("Frame")
@@ -1447,7 +1451,7 @@ function HawkLib:Window(Win)
 						)
 
 						if OnPc then
-							local mouse = game.Players.LocalPlayer:GetMouse()
+							local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 							local uis = game:GetService("UserInputService")
 							local Value;
 
@@ -1489,7 +1493,7 @@ function HawkLib:Window(Win)
 							):Play()
 						elseif OnMobile or OnTabletLaptop then
 
-							local mouse = game.Players.LocalPlayer:GetMouse()
+							local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 							local uis = game:GetService("UserInputService")
 							local Value;
 
@@ -2312,7 +2316,7 @@ function HawkLib:Window(Win)
 							function()
 								if not focusing then
 									if toggled == false then
-										game.TweenService:Create(
+										TweenService:Create(
 											done,
 											TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 											{
@@ -2321,7 +2325,7 @@ function HawkLib:Window(Win)
 										):Play()
 
 									else
-										game.TweenService:Create(
+										TweenService:Create(
 											done,
 											TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 											{
@@ -2351,7 +2355,7 @@ function HawkLib:Window(Win)
 							if zz ~= nil then
 								toggled = zz
 								if toggled == false then
-									game.TweenService:Create(
+									TweenService:Create(
 										done,
 										TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 										{
@@ -2360,7 +2364,7 @@ function HawkLib:Window(Win)
 									):Play()
 
 								else
-									game.TweenService:Create(
+									TweenService:Create(
 										done,
 										TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 										{
@@ -2378,7 +2382,7 @@ function HawkLib:Window(Win)
 						elseif check == false then
 							Toggleee:UpdateToggle(false)
 						elseif check == nil or tostring(check):match("func") then
-							game.TweenService:Create(
+							TweenService:Create(
 								done,
 								TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 								{
@@ -4127,7 +4131,7 @@ function HawkLib:Window(Win)
 				callback = callback or function()
 				end
 
-				local mouse = game.Players.LocalPlayer:GetMouse()
+				local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 				local uis = game:GetService("UserInputService")
 
 				local Slider = Instance.new("Frame")
@@ -4279,7 +4283,7 @@ function HawkLib:Window(Win)
 				)
 
 				if OnPc then
-					local mouse = game.Players.LocalPlayer:GetMouse()
+					local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 					local uis = game:GetService("UserInputService")
 					local Value;
 
@@ -4321,7 +4325,7 @@ function HawkLib:Window(Win)
 					):Play()
 				elseif OnMobile or OnTabletLaptop then
 
-					local mouse = game.Players.LocalPlayer:GetMouse()
+					local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 					local uis = game:GetService("UserInputService")
 					local Value;
 
@@ -5144,7 +5148,7 @@ function HawkLib:Window(Win)
 					function()
 						if not focusing then
 							if toggled == false then
-								game.TweenService:Create(
+								TweenService:Create(
 									done,
 									TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 									{
@@ -5153,7 +5157,7 @@ function HawkLib:Window(Win)
 								):Play()
 
 							else
-								game.TweenService:Create(
+								TweenService:Create(
 									done,
 									TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 									{
@@ -5183,7 +5187,7 @@ function HawkLib:Window(Win)
 					if zz ~= nil then
 						toggled = zz
 						if toggled == false then
-							game.TweenService:Create(
+							TweenService:Create(
 								done,
 								TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 								{
@@ -5192,7 +5196,7 @@ function HawkLib:Window(Win)
 							):Play()
 
 						else
-							game.TweenService:Create(
+							TweenService:Create(
 								done,
 								TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 								{
@@ -5210,7 +5214,7 @@ function HawkLib:Window(Win)
 				elseif check == false then
 					Toggleee:UpdateToggle(false)
 				elseif check == nil or tostring(check):match("func") then
-					game.TweenService:Create(
+					TweenService:Create(
 						done,
 						TweenInfo.new(0.11, Enum.EasingStyle.Linear, Enum.EasingDirection.In),
 						{
